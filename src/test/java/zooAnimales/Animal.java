@@ -9,13 +9,16 @@ public class Animal{
     private String genero;
     private Zona[] zona = new Zona[1];
 
-    public Animal(){}
+    public Animal(){
+        totalAnimales++;
+    }
 
     public Animal(String nombre, int edad, String habitat, String genero){
         this.nombre = nombre;
         this.edad = edad;
         this.habitat = habitat;
         this.genero = genero;
+        totalAnimales++;
     }
 
     public String movimiento(){
@@ -27,12 +30,12 @@ public class Animal{
                "Aves: " + Ave.cantidadAves() + "\n" +
 			   "Reptiles: " + Reptil.cantidadReptiles() + "\n" +
 				"Peces: " + Pez.cantidadPeces() + "\n" +
-				"Anfibios: " + Anfibio.cantidadAnfibios() + "\n";
+				"Anfibios: " + Anfibio.cantidadAnfibios();
     }
 
     public String toString(){
         return "Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat +
-               " y mi género es " + genero + ", la zona en la que me ubico es " + zona +", en el " + zona[0].getZoo();
+               " y mi genero es " + genero;// + ", la zona en la que me ubico es " + zona +", en el " + zona[0].getZoo();
     }
 
     public static int getTotalAnimales(){
