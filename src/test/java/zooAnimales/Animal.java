@@ -9,50 +9,77 @@ public class Animal{
     private String genero;
     private Zona[] zona = new Zona[1];
 
-    public enum Tipo{MAMIFERO, AVE, REPTIL, PEZ, ANFIBIO}
-
     public Animal(){}
 
-    public Animal(String nombre, int edad, String habitat, String genero, Zona[] zona){
+    public Animal(String nombre, int edad, String habitat, String genero){
         this.nombre = nombre;
         this.edad = edad;
         this.habitat = habitat;
         this.genero = genero;
-        this.zona = zona;
     }
 
     public String movimiento(){
         return "desplazarse";
     }
 
-    public int totalPorTipo(Tipo tipo){
-        switch(tipo){
-            case MAMIFERO:
-                return Mamifero.cantidadMamiferos();
-
-            case AVE:
-                return Ave.cantidadAves();
-
-            case REPTIL:
-                return Reptil.cantidadReptiles();
-
-            case PEZ:
-                return Pez.cantidadPeces();
-
-            case ANFIBIO:
-                return Anfibio.cantidadAnfibios();
-
-            default:
-                return 0;
-        }
+    public static String totalPorTipo(){
+        return "Mamiferos: " + Mamifero.cantidadMamiferos() + "\n" +
+               "Aves: " + Ave.cantidadAves() + "\n" +
+			   "Reptiles: " + Reptil.cantidadReptiles() + "\n" +
+				"Peces: " + Pez.cantidadPeces() + "\n" +
+				"Anfibios: " + Anfibio.cantidadAnfibios() + "\n";
     }
 
     public String toString(){
         return "Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat +
-               " y mi género es " + genero + ", la zona en la que me ubico es " + zona +", en el #zoo.";
+               " y mi género es " + genero + ", la zona en la que me ubico es " + zona +", en el " + zona[0].getZoo();
     }
 
     public static int getTotalAnimales(){
         return Animal.totalAnimales;
+    }
+
+    public static void setTotalAnimales(int nuevoTotalAnimales){
+        totalAnimales = nuevoTotalAnimales;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public void setNombre(String nuevoNombre){
+        nombre = nuevoNombre;
+    }
+
+    public int getEdad(){
+        return edad;
+    }
+
+    public void setEdad(int nuevaEdad){
+        edad = nuevaEdad;
+    }
+
+    public String getHabitat(){
+        return habitat;
+    }
+
+    public void setHabitat(String nuevoHabitat){
+        habitat = nuevoHabitat;
+    }
+
+    public String getGenero(){
+        return genero;
+    }
+
+    public void setGenero(String nuevoGenero){
+        genero = nuevoGenero;
+    }
+
+    public Zona[] getZona(){
+        return zona;
+    }
+
+    public void setZona(Zona[] nuevaZona){
+        zona = nuevaZona;
     }
 }

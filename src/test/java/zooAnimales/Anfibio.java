@@ -1,8 +1,7 @@
 package zooAnimales;
-import gestion.Zona;
 import java.util.ArrayList;
 
-class Anfibio extends Animal{
+public class Anfibio extends Animal{
     private static ArrayList<Anfibio> listado;
     public static int ranas;
     public static int salamandras;
@@ -11,9 +10,8 @@ class Anfibio extends Animal{
 
     public Anfibio(){}
 
-    public Anfibio(String nombre, int edad, String habitat, String genero, Zona[] zona,
-                   String colorPiel, Boolean venenoso){
-        super(nombre, edad, habitat, genero, zona);
+    public Anfibio(String nombre, int edad, String habitat, String genero, String colorPiel, Boolean venenoso){
+        super(nombre, edad, habitat, genero);
         Anfibio.listado.add(this);
         this.colorPiel = colorPiel;
         this.venenoso = venenoso;
@@ -27,14 +25,14 @@ class Anfibio extends Animal{
         return "Saltar";
     }
 
-    public void crearRana(String nombre, int edad, String genero, Zona[] zona){
+    public static Anfibio crearRana(String nombre, int edad, String genero){
         Anfibio.ranas++;
-        new Anfibio(nombre, edad, "selva", genero, zona, "rojo", true);
+        return new Anfibio(nombre, edad, "selva", genero, "rojo", true);
     }
 
-    public void crearSalamandra(String nombre, int edad, String genero, Zona[] zona){
+    public static Anfibio crearSalamandra(String nombre, int edad, String genero){
         Anfibio.salamandras++;
-        new Anfibio(nombre, edad, "selva", genero, zona, "negro y amarillo", false);
+        return new Anfibio(nombre, edad, "selva", genero, "negro y amarillo", false);
     }
 
     public static ArrayList<Anfibio> getListado(){
@@ -53,7 +51,7 @@ class Anfibio extends Animal{
         colorPiel = nuevoColorPiel;
     }
 
-    public Boolean getVenenoso(){
+    public Boolean isVenenoso(){
         return venenoso;
     }
 
